@@ -11,7 +11,7 @@ const WorkCard = ({ title, description }) => (
       <div className="flex items-center justify-between">
         <span className="text-[24px] sm:text-[28px] md:text-[32px] font-medium leading-[100%] group-hover:text-[#990000] transition-colors duration-300">{title}</span>
         <img 
-          className="serv-arrow w-8 sm:w-auto transition-transform duration-300 group-hover:translate-x-1" 
+          className="w-8 transition-transform duration-300 serv-arrow sm:w-auto group-hover:translate-x-1" 
           src="https://avatars.mds.yandex.net/get-lpc/10704932/21e2cd32-7dca-4476-9f8c-75f72a8bbf2d/orig" 
           alt="icône"
         />
@@ -68,7 +68,7 @@ const WorkWithUs = () => {
   return (
     <div className="my-10 sm:my-16 md:my-20">
       {/* Section Travaillez avec nous */}
-      <section className="py-10 sm:py-16 md:py-20 px-4 sm:px-6 md:px-10">
+      <section className="px-4 py-10 sm:py-16 md:py-20 sm:px-6 md:px-10">
         <div className="container mx-auto">
           <Title 
             level={2}
@@ -89,18 +89,18 @@ const WorkWithUs = () => {
         </div>
       </section>
 
-      {/* Ruban défilant */}
-      <ScrollingRibbon />
+      {/* Ruban défilant
+      <ScrollingRibbon /> */}
 
       {/* Section Sécurité */}
-      <section className="pb-10 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-10 bg-white">
+      <section className="px-4 pb-10 bg-white sm:pb-16 md:pb-20 sm:px-6 md:px-10">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 md:gap-20">
             <div className="h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop"
                 alt="Service VTC"
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full"
               />
             </div>
             <div className="flex flex-col justify-center h-full py-6 sm:py-8 md:py-10">
@@ -115,7 +115,7 @@ const WorkWithUs = () => {
               >
                 L'excellence du transport privé
               </Title>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:gap-10">
                 {securityFeatures.map((feature, index) => (
                   <SecurityFeature key={index} {...feature} />
                 ))}

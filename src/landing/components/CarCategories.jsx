@@ -8,7 +8,7 @@ const CarCard = ({ image, title, subtitle, description, features }) => {
 
   return (
     <div className="bg-[#f8f8f8] overflow-hidden h-full">
-      <div className="p-8 pt-0 flex flex-col h-full">
+      <div className="flex flex-col h-full p-8 pt-0">
         <div className="overflow-hidden">
           <img 
             src={image} 
@@ -28,7 +28,7 @@ const CarCard = ({ image, title, subtitle, description, features }) => {
           </h3>
         </div>
 
-        <div className="mt-6 flex-grow">
+        <div className="flex-grow mt-6">
           <Text className="text-[#666666] text-base leading-5 block">
             {description}
           </Text>
@@ -50,7 +50,7 @@ const CarCard = ({ image, title, subtitle, description, features }) => {
               {isExpanded && (
                 <ul className="mt-3 text-[#666666] list-none">
                   {features.map((feature, index) => (
-                    <li key={index} className="pb-3 last:pb-0 flex items-start">
+                    <li key={index} className="flex items-start pb-3 last:pb-0">
                       <span className="w-[6px] h-[6px] bg-[#990000] mt-[8px] mr-3 flex-shrink-0"></span>
                       <span>{feature}</span>
                     </li>
@@ -73,9 +73,9 @@ const CarCategories = () => {
   const categories = [
     {
       image: "https://avatars.mds.yandex.net/get-lpc/12373972/12c84eb4-9700-4ce6-86f3-e56de7975be1/orig",
-      title: "Économique",
+      title: "Berline",
       subtitle: "Transport simple",
-      description: "Suzuki Alto, Toyota Starlet",
+      description: "Jusqu'à 4 places",
       features: [
         "Trajet court",
         "Prix abordable",
@@ -84,9 +84,9 @@ const CarCategories = () => {
     },
     {
       image: "https://avatars.mds.yandex.net/get-lpc/12373972/6065ce26-8a01-4e17-bf9a-d450dfbde488/orig",
-      title: "Confort",
+      title: "Suv",
       subtitle: "Transport confortable",
-      description: "Toyota Yaris, Renault Logan",
+      description: "Jusqu'à 4 places",
       features: [
         "Espace confortable",
         "Climatisation",
@@ -95,9 +95,9 @@ const CarCategories = () => {
     },
     {
       image: "https://avatars.mds.yandex.net/get-lpc/1635340/513b6dac-ff6b-45d4-a0df-465d460f9f33/orig",
-      title: "Confort +",
+      title: "VAN",
       subtitle: "Transport spacieux",
-      description: "Hyundai Elantra, Toyota Corolla",
+      description: "Jusqu'à 7 places",
       features: [
         "Grand espace",
         "Climatisation",
@@ -106,31 +106,46 @@ const CarCategories = () => {
     },
     {
       image: "https://avatars.mds.yandex.net/get-lpc/12373972/5311e932-0e95-408e-833e-3f49e775ba4a/orig",
-      title: "Premium",
+      title: "Mini-Bus",
       subtitle: "Transport luxueux",
-      description: "Mercedes Classe E, BMW Série 5",
+      description: "Jusqu'à 15 places",
       features: [
         "Véhicule luxueux",
         "Service VIP",
         "Tout trajet"
       ]
-    }
+    },
+    {
+      image: "https://avatars.mds.yandex.net/get-lpc/12373972/5311e932-0e95-408e-833e-3f49e775ba4a/orig",
+      title: "Véhicule",
+      subtitle: "Transport luxueux",
+      description: "Utilitaire",
+      features: [
+        "Véhicule luxueux",
+        "Service VIP",
+        "Tout trajet"
+      ]
+    },
   ];
 
   return (
-    <section className="py-8 sm:py-10 md:py-[40px] lg:py-[60px] px-4 sm:px-5 md:px-6 lg:px-7">
-      <div className="container mx-auto max-w-[1504px]">
-        <h2 className="mb-6 sm:mb-7 md:mb-8 text-[42px] sm:text-[60px] md:text-[75px] lg:text-[90px] font-medium leading-[1.2] tracking-[-0.03em]">
-          Catégories de service
-        </h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          {categories.map((category, index) => (
-            <CarCard key={index} {...category} />
-          ))}
+    <section className="py-6 sm:py-8 md:py-[30px] lg:py-[50px] px-4 sm:px-5 md:px-6 lg:px-7">
+  <div className="container mx-auto max-w-[1504px]">
+    <h2 className="mb-4 sm:mb-5 md:mb-6 text-[20px] sm:text-[25px] md:text-[35px] lg:text-[50px] font-medium leading-[1.2] tracking-[-0.03em] text-start">
+      Notre sélection de véhicules
+    </h2>
+    
+    {/* Conteneur scrollable */}
+    <div className="flex gap-3 overflow-x-auto sm:gap-4 whitespace-nowrap scroll-smooth">
+      {categories.map((category, index) => (
+        <div key={index} className="flex-shrink-0 w-[300px] sm:w-[350px] md:w-[400px] lg:w-[450px]">
+          <CarCard {...category} />
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
+
   );
 };
 

@@ -1,64 +1,58 @@
 import React from 'react';
+import { Tooltip } from 'antd';
 
-const SecurityCard = ({ icon, title, description }) => {
+const StepCard = ({ number, title, description }) => {
   return (
-    <div className="bg-[#f8f8f8] h-full">
-      <div className="p-4 flex flex-col h-full">
-        <div className="py-3 pl-4">
-          <img 
-            src={icon} 
-            alt={title}
-            className="w-[120px] h-[120px] object-contain"
-          />
-        </div>
-        
-        <div className="px-4 pb-6">
-          <h3 className="text-[20px] font-medium leading-[21px] tracking-[-0.6px] text-black mb-4">
-            {title}
-          </h3>
-          <p className="text-[16px] leading-[20px] tracking-[-0.32px] text-[#666666]">
-            {description}
-          </p>
+    <Tooltip title={description} placement="top">
+      <div className="bg-[#f8f8f8] h-full cursor-pointer transition-all duration-300 hover:shadow-lg">
+        <div className="flex flex-col h-full p-4">
+          <div className="py-3 pl-4">
+            <div className="flex items-center justify-center w-[60px] h-[60px] rounded-full bg-[#990000] text-white font-bold text-[24px]">
+              {number}
+            </div>
+            <div className="h-[2px] w-full bg-[#990000] mt-2"></div>
+          </div>
+
+          <div className="px-4 pb-6">
+            <h3 className="text-[20px] font-medium leading-[21px] tracking-[-0.6px] text-black mb-4">
+              {title}
+            </h3>
+          </div>
         </div>
       </div>
-    </div>
+    </Tooltip>
   );
 };
 
-const SecurityFeatures = () => {
-  const features = [
+const HowItWorks = () => {
+  const steps = [
     {
-      icon: "https://avatars.mds.yandex.net/get-lpc/12373972/72f445b5-0bf0-44e3-ba1b-29ba50469958/orig",
-      title: "Des prix abordables",
-      description: "Fini le marchandage. L'application calcule automatiquement le coût de votre trajet"
+      number: "1",
+      title: "Choisissez votre Service et Zone",
+      description: "Sélectionnez entre Transfert (trajet direct) ou Mise à disposition (location avec chauffeur)."
     },
     {
-      icon: "https://avatars.mds.yandex.net/get-lpc/10116223/41bf8f64-8616-46f9-a936-7dca1da93d1f/orig",
-      title: "Économisez sur vos trajets",
-      description: "Profitez de nos offres spéciales et réductions exclusives sur vos trajets"
+      number: "2",
+      title: "Renseignez la destination et l'heure",
+      description: "Indiquez votre lieu d'arrivée et sélectionnez la date et l'heure de prise en charge."
     },
     {
-      icon: "https://avatars.mds.yandex.net/get-lpc/10704932/e5cee746-b1af-431a-b274-d010467013d2/orig",
-      title: "Fonctions de sécurité",
-      description: "Des fonctions de sécurité exclusives accessibles en 2 clics dans l'application KAIROS"
-    },
-    {
-      icon: "https://avatars.mds.yandex.net/get-lpc/9736426/0de8fd20-d93e-4109-9aa9-cdf2f3a92e06/orig",
-      title: "Paiements sans espèces",
-      description: "Pourquoi compter l'argent et attendre la monnaie? Payez directement via l'application et ne vous souciez plus de rien!"
+      number: "3",
+      title: "Confirmation et Envoi",
+      description: "Indiquez votre mode de paiement, validez votre demande et imprimez votre facture."
     }
   ];
 
   return (
-    <section className="py-8 sm:py-10 md:py-[60px] lg:py-20 px-4 sm:px-5 md:px-6 lg:px-10">
+    <section className="py-6 sm:py-8 md:py-[50px] lg:py-16 px-4 sm:px-5 md:px-6 lg:px-10">
       <div className="container mx-auto max-w-[1500px]">
-        <h2 className="text-[42px] sm:text-[60px] md:text-[90px] font-medium leading-[100%] tracking-[-1.26px] text-left mb-6 sm:mb-10">
-          Des services adaptés à vos besoins
+        <h2 className="mb-4 sm:mb-5 md:mb-6 text-[20px] sm:text-[25px] md:text-[35px] lg:text-[50px] font-medium leading-[1.2] tracking-[-0.03em] text-start">
+          COMMENT ÇA MARCHE AVEC <span className="text-[#990000]">KAIROS ?</span>
         </h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {features.map((feature, index) => (
-            <SecurityCard key={index} {...feature} />
+
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide whitespace-nowrap lg:grid lg:grid-cols-3 lg:gap-4">
+          {steps.map((step, index) => (
+            <StepCard key={index} {...step} />
           ))}
         </div>
       </div>
@@ -66,4 +60,4 @@ const SecurityFeatures = () => {
   );
 };
 
-export default SecurityFeatures; 
+export default HowItWorks;
