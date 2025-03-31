@@ -70,17 +70,11 @@ const WorkWithUs = () => {
       {/* Section Travaillez avec nous */}
       <section className="px-4 py-10 sm:py-16 md:py-20 sm:px-6 md:px-10">
         <div className="container mx-auto">
-          <Title 
-            level={2}
-            style={{
-              fontSize: 'clamp(42px, 8vw, 90px)',
-              fontWeight: 500,
-              lineHeight: '100%',
-              marginBottom: '20px'
-            }}
+          <div 
+            className="mb-4 sm:mb-5 md:mb-6 text-[20px] sm:text-[25px] md:text-[35px] lg:text-[50px] font-medium leading-[1.2] tracking-[-0.03em] text-start"
           >
             Nos services premium
-          </Title>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-[20px] sm:gap-[30px] max-w-[800px]">
             {workCards.map((card, index) => (
               <WorkCard key={index} {...card} />
@@ -104,17 +98,11 @@ const WorkWithUs = () => {
               />
             </div>
             <div className="flex flex-col justify-center h-full py-6 sm:py-8 md:py-10">
-              <Title 
-                level={2}
-                style={{
-                  fontSize: 'clamp(32px, 6vw, 48px)',
-                  fontWeight: 500,
-                  lineHeight: '100%',
-                  marginBottom: '20px sm:30px md:40px'
-                }}
+              <div 
+                className="mb-4 sm:mb-5 md:mb-6 text-[20px] sm:text-[25px] md:text-[35px] lg:text-[50px] font-medium leading-[1.2] tracking-[-0.03em] text-start"
               >
                 L'excellence du transport privé
-              </Title>
+              </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:gap-10">
                 {securityFeatures.map((feature, index) => (
                   <SecurityFeature key={index} {...feature} />

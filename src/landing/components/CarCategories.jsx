@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Typography } from 'antd';
 
 const { Title, Text } = Typography;
 
-const CarCard = ({ image, title, subtitle, description, features }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const CarCard = ({ image, title, subtitle, description }) => {
+  // const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="bg-[#f8f8f8] overflow-hidden h-full">
@@ -13,7 +13,7 @@ const CarCard = ({ image, title, subtitle, description, features }) => {
           <img 
             src={image} 
             alt={title} 
-            className="w-full h-auto object-cover aspect-[640/367]"
+            className="w-full h-auto object-contain aspect-[640/367]"
           />
         </div>
         
@@ -33,7 +33,7 @@ const CarCard = ({ image, title, subtitle, description, features }) => {
             {description}
           </Text>
 
-          {features && features.length > 0 && (
+          {/* {features && features.length > 0 && (
             <div className="mt-8">
               <div 
                 className={`cursor-pointer font-medium text-black flex items-center justify-between`}
@@ -58,7 +58,7 @@ const CarCard = ({ image, title, subtitle, description, features }) => {
                 </ul>
               )}
             </div>
-          )}
+          )} */}
         </div>
 
         <button className="mt-8 w-full h-[44px] border border-[#990000] text-base font-medium transition-all duration-300 hover:bg-[#990000] hover:text-white">
@@ -72,7 +72,7 @@ const CarCard = ({ image, title, subtitle, description, features }) => {
 const CarCategories = () => {
   const categories = [
     {
-      image: "https://avatars.mds.yandex.net/get-lpc/12373972/12c84eb4-9700-4ce6-86f3-e56de7975be1/orig",
+      image: "/berline.png",
       title: "Berline",
       subtitle: "Transport simple",
       description: "Jusqu'à 4 places",
@@ -83,7 +83,7 @@ const CarCategories = () => {
       ]
     },
     {
-      image: "https://avatars.mds.yandex.net/get-lpc/12373972/6065ce26-8a01-4e17-bf9a-d450dfbde488/orig",
+      image: "/suv.png",
       title: "Suv",
       subtitle: "Transport confortable",
       description: "Jusqu'à 4 places",
@@ -94,7 +94,7 @@ const CarCategories = () => {
       ]
     },
     {
-      image: "https://avatars.mds.yandex.net/get-lpc/1635340/513b6dac-ff6b-45d4-a0df-465d460f9f33/orig",
+      image: "/van.png",
       title: "VAN",
       subtitle: "Transport spacieux",
       description: "Jusqu'à 7 places",
@@ -105,7 +105,7 @@ const CarCategories = () => {
       ]
     },
     {
-      image: "https://avatars.mds.yandex.net/get-lpc/12373972/5311e932-0e95-408e-833e-3f49e775ba4a/orig",
+      image: "/minibus.png",
       title: "Mini-Bus",
       subtitle: "Transport luxueux",
       description: "Jusqu'à 15 places",
@@ -116,9 +116,9 @@ const CarCategories = () => {
       ]
     },
     {
-      image: "https://avatars.mds.yandex.net/get-lpc/12373972/5311e932-0e95-408e-833e-3f49e775ba4a/orig",
+      image: "/utilitaire.png",
       title: "Véhicule",
-      subtitle: "Transport luxueux",
+      subtitle: "Transport personnalisé",
       description: "Utilitaire",
       features: [
         "Véhicule luxueux",

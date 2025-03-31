@@ -34,7 +34,7 @@ const ServicesGrid = () => {
       //   "Sérénité : Que ce soit une arrivée ou un départ, nous nous occupons de tout pour vous !",
       // ],
       link: "#servicesplus",
-      image: "https://i.pinimg.com/736x/70/16/c6/7016c680ae4e103497b9c0e46a163269.jpg",
+      image: "/aeroport.jpg",
     },
     {
       title: "Mise À Disposition À Dakar",
@@ -47,7 +47,7 @@ const ServicesGrid = () => {
       //   "Découverte de Dakar : Partez à la découverte de la ville avec l'aide d'un guide local.",
       // ],
       link: "#servicesplus",
-      image: "https://i.pinimg.com/736x/70/16/c6/7016c680ae4e103497b9c0e46a163269.jpg",
+      image: "/dakar.png",
     },
     {
       title: "Mise À Disposition en Région",
@@ -60,7 +60,7 @@ const ServicesGrid = () => {
       //   "Personnalisation : Possibilité d'organiser des trajets selon vos besoins.",
       // ],
       link: "#servicesplus",
-      image: "https://i.pinimg.com/736x/70/16/c6/7016c680ae4e103497b9c0e46a163269.jpg",
+      image: "/region.jpg",
     },
   ];
 

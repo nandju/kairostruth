@@ -51,14 +51,14 @@ const FAQ = () => {
 
   return (
     <section className="bg-[#f8f8f8]">
-      <div className="py-12 px-4 sm:py-14 sm:px-6 md:py-16 lg:py-16">
+      <div className="px-4 py-12 sm:py-14 sm:px-6 md:py-16 lg:py-16">
         <div className="max-w-[1500px] mx-auto">
-          <h2 className="text-[42px] sm:text-[60px] md:text-[90px] font-medium leading-[100%] tracking-[-1.26px] text-left mb-6 sm:mb-10">
+          <h2 className="mb-4 sm:mb-5 md:mb-6 text-[20px] sm:text-[25px] md:text-[35px] lg:text-[50px] font-medium leading-[1.2] tracking-[-0.03em] text-start">
             Questions fréquentes
           </h2>
           
-          <div className="overflow-x-auto sm:overflow-x-visible -mx-4 px-4 sm:mx-0 sm:px-0">
-            <ul className="flex flex-row sm:flex-row flex-nowrap sm:flex-wrap gap-2 list-none p-0 m-0 pb-6 sm:justify-between">
+          <div className="px-4 -mx-4 overflow-x-auto sm:overflow-x-visible sm:mx-0 sm:px-0">
+            <ul className="flex flex-row gap-2 p-0 pb-6 m-0 list-none sm:flex-row flex-nowrap sm:flex-wrap sm:justify-between">
               {questions.map((item, index) => (
                 <FAQItem 
                   key={index} 

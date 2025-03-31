@@ -41,7 +41,7 @@ const ServicesGrid = () => {
   const services = [
     {
       title: "Transferts Aéroport",
-      description: "Pour vos déplacements sans stress vers ou depuis l'AIBD.",
+      description: "Pour vos déplacements sans stress vers ou depuis l'aéroport.",
       price: "Transfert Simple : 25 000 FCFA",
       details: "Aller-Retour : 40 000 FCFA",
       features: [
@@ -50,7 +50,7 @@ const ServicesGrid = () => {
         "Sérénité : Que ce soit une arrivée ou un départ, nous nous occupons de tout pour vous !",
       ],
       link: "/transferts-aeroport",
-      image: "https://i.pinimg.com/736x/70/16/c6/7016c680ae4e103497b9c0e46a163269.jpg",
+      image: "/aeroport.png",
     },
     {
       title: "Mise À Disposition À Dakar",
@@ -63,7 +63,7 @@ const ServicesGrid = () => {
         "Découverte de Dakar : Partez à la découverte de la ville avec l'aide d'un guide local.",
       ],
       link: "/mise-a-disposition-dakar",
-      image: "https://i.pinimg.com/736x/70/16/c6/7016c680ae4e103497b9c0e46a163269.jpg",
+      image: "/dakar.png",
     },
     {
       title: "Mise À Disposition en Région",
@@ -76,7 +76,7 @@ const ServicesGrid = () => {
         "Personnalisation : Possibilité d'organiser des trajets selon vos besoins.",
       ],
       link: "/mise-a-disposition-region",
-      image: "https://i.pinimg.com/736x/70/16/c6/7016c680ae4e103497b9c0e46a163269.jpg",
+      image: "/region.png",
     },
   ];
 
