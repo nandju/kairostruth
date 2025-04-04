@@ -13,16 +13,12 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "/(.*).(js|css|ico|json)",
+      "src": "/(.*)\\.(js|css|ico|json)",
       "dest": "/$1.$2"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
-} 
+}
