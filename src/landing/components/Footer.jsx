@@ -39,14 +39,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="text-white bg-black">
       <div className="max-w-[1540px] mx-auto">
         {/* Section principale */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-6 py-16">
+        <div className="grid grid-cols-1 gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
           {/* Logo et description */}
           <div className="space-y-6">
-            <img src="/logo.webp" alt="KAIROS" className="h-8" />
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+            <img src="/assets/logo.webp" alt="KAIROS" className="h-8" />
+            <p className="max-w-xs text-sm leading-relaxed text-gray-400">
               Votre partenaire de confiance pour des trajets confortables et abordables partout au Sénégal.
             </p>
             {/* Réseaux sociaux */}
@@ -55,7 +55,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-400 transition-colors hover:text-white"
                 >
                   <i className={`${social.icon} text-xl`}></i>
                 </a>
@@ -66,13 +66,13 @@ const Footer = () => {
           {/* Liens de navigation */}
           {Object.values(footerLinks).map((category) => (
             <div key={category.title}>
-              <h3 className="text-lg font-monument mb-6">{category.title}</h3>
+              <h3 className="mb-6 text-lg font-monument">{category.title}</h3>
               <ul className="space-y-4">
                 {category.links.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-white text-sm transition-colors"
+                      className="text-sm text-gray-400 transition-colors hover:text-white"
                     >
                       {link.name}
                     </a>
@@ -85,15 +85,15 @@ const Footer = () => {
 
         {/* Barre de copyright */}
         <div className="border-t border-white/10">
-          <div className="px-6 py-8 flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+          <div className="flex flex-col items-center justify-between px-6 py-8 sm:flex-row">
+            <p className="text-sm text-gray-400">
               © {new Date().getFullYear()} KAIROS. Tous droits réservés.
             </p>
-            <div className="flex space-x-6 mt-4 sm:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <div className="flex mt-4 space-x-6 sm:mt-0">
+              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-white">
                 Aide
               </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <a href="#" className="text-sm text-gray-400 transition-colors hover:text-white">
                 Support
               </a>
             </div>

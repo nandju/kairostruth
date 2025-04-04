@@ -8,13 +8,13 @@ const { Title } = Typography;
 
 const LoginPage = () => {
   return (
-    <div className="font-styrene mx-auto flex w-full grow flex-col md:p-3 justify-center">
+    <div className="flex flex-col justify-center w-full mx-auto font-styrene grow md:p-3">
       <main className="grid grid-cols-1 gap-4 min-[1000px]:grid-cols-2">
         <div className="flex items-center min-h-[97vh] w-full py-6">
-          <div className="flex flex-col h-full w-full items-center justify-between">
-            <Link to="/" className="pr-2 mt-8 flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
-              <img src="/logo.webp" alt="WeTravel Logo" className="h-12 md:h-16 mb-4" />
-              <span className="text-4xl md:text-6xl font-bold tracking-widest text-gray-800 font-poppins">KAIROS</span>
+          <div className="flex flex-col items-center justify-between w-full h-full">
+            <Link to="/" className="flex items-center gap-4 pr-2 mt-8 transition-opacity cursor-pointer hover:opacity-80">
+              <img src="/assets/logo.webp" alt="WeTravel Logo" className="h-12 mb-4 md:h-16" />
+              <span className="text-4xl font-bold tracking-widest text-gray-800 md:text-6xl font-poppins">KAIROS</span>
             </Link>
             
             <div>
@@ -45,9 +45,9 @@ const LoginPage = () => {
               className="absolute w-full h-full"
             >
               <img 
-                src="/car-1.webp" 
+                src="/assets/car-1.webp" 
                 alt="Background" 
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
             </motion.div>
@@ -56,9 +56,9 @@ const LoginPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute bottom-20 left-10 right-10 text-white z-10"
+              className="absolute z-10 text-white bottom-20 left-10 right-10"
             >
-              <h2 className="text-4xl font-bold mb-4 font-poppins">
+              <h2 className="mb-4 text-4xl font-bold font-poppins">
                 Votre prochaine aventure commence ici
               </h2>
               <p className="text-lg opacity-90">

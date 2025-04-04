@@ -9,7 +9,7 @@ const Hero = () => {
     <div 
       className="relative text-white py-24 md:py-32 min-h-[600px] md:min-h-[700px] flex items-center"
       style={{ 
-        backgroundImage: 'url(/bg-hero.webp)',
+        backgroundImage: 'url(/assets/bg-hero.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}
@@ -18,7 +18,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 md:hidden"
         style={{
-          backgroundImage: 'url(/car-1.webp)',
+          backgroundImage: 'url(/assets/car-1.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 0
@@ -99,7 +99,7 @@ const Hero = () => {
           <Col xs={24} md={12} className="justify-center hidden md:flex md:justify-end">
             <div className="relative w-full">
               <img 
-                src="/assets/car-1.webp" 
+                src="/assets/car-1.webp"
                 alt="Voiture de luxe avec chauffeur" 
                 className="w-full h-auto transition-transform duration-500 transform rounded-lg shadow-2xl hover:scale-105"
                 style={{ maxHeight: '500px', objectFit: 'cover' }}

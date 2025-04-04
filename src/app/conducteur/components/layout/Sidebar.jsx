@@ -57,15 +57,15 @@ const Sidebar = ({ collapsed }) => {
   return (
     <Sider
       collapsed={collapsed}
-      className="min-h-screen bg-gradient-to-b from-black to-gray-900 fixed left-0 top-0 bottom-0 overflow-hidden"
+      className="fixed top-0 bottom-0 left-0 min-h-screen overflow-hidden bg-gradient-to-b from-black to-gray-900"
       theme="dark"
       width={isMobile ? 280 : 400}
       collapsedWidth={isMobile ? 0 : 80}
     >
       {/* Logo - Première partie */}
-      <div className="h-14 md:h-20 flex items-center justify-between border-b border-gray-800 px-3 md:px-5">
-        <Link to="/conducteur/dashboard" className="flex items-center gap-2 md:gap-4 w-full justify-between">
-          <img src="/logo.webp" alt="Logo" className="h-10 md:h-16" />
+      <div className="flex items-center justify-between px-3 border-b border-gray-800 h-14 md:h-20 md:px-5">
+        <Link to="/conducteur/dashboard" className="flex items-center justify-between w-full gap-2 md:gap-4">
+          <img src="/assets/logo.webp" alt="Logo" className="h-10 md:h-16" />
           {!collapsed && (
             <Title level={4} className="!m-0 !text-white font-poppins !font-semibold !text-lg md:!text-2xl">
               KAIROS
@@ -80,7 +80,7 @@ const Sidebar = ({ collapsed }) => {
           {/* Navigation */}
           <div className="mb-16 md:mb-32">
             {!collapsed && (
-              <Text className="text-xs uppercase tracking-wider text-white font-semibold mb-2 md:mb-4 block">
+              <Text className="block mb-2 text-xs font-semibold tracking-wider text-white uppercase md:mb-4">
                 Navigation
               </Text>
             )}
@@ -94,9 +94,9 @@ const Sidebar = ({ collapsed }) => {
                 <Menu.Item 
                   key={item.key} 
                   icon={item.icon}
-                  className="rounded-none transition-colors text-base md:text-lg"
+                  className="text-base transition-colors rounded-none md:text-lg"
                 >
-                  <Link to={item.key} className="font-poppins text-base md:text-lg text-white hover:text-white">
+                  <Link to={item.key} className="text-base text-white font-poppins md:text-lg hover:text-white">
                     {item.label}
                   </Link>
                 </Menu.Item>
@@ -107,7 +107,7 @@ const Sidebar = ({ collapsed }) => {
           {/* Compte */}
           <div>
             {!collapsed && (
-              <Text className="text-xs uppercase tracking-wider text-white font-semibold mb-2 md:mb-4 block">
+              <Text className="block mb-2 text-xs font-semibold tracking-wider text-white uppercase md:mb-4">
                 Compte
               </Text>
             )}
@@ -121,9 +121,9 @@ const Sidebar = ({ collapsed }) => {
                 <Menu.Item 
                   key={item.key} 
                   icon={item.icon}
-                  className="rounded-none transition-colors text-base md:text-lg"
+                  className="text-base transition-colors rounded-none md:text-lg"
                 >
-                  <Link to={item.key} className="font-poppins text-base md:text-lg text-white hover:text-white">
+                  <Link to={item.key} className="text-base text-white font-poppins md:text-lg hover:text-white">
                     {item.label}
                   </Link>
                 </Menu.Item>
@@ -135,7 +135,7 @@ const Sidebar = ({ collapsed }) => {
 
       {/* Footer - Troisième partie */}
       {!collapsed && (
-        <div className="absolute bottom-0 left-0 right-0 border-t border-gray-800 px-3 md:px-5 py-3 md:py-4 bg-gradient-to-b from-black to-gray-900">
+        <div className="absolute bottom-0 left-0 right-0 px-3 py-3 border-t border-gray-800 md:px-5 md:py-4 bg-gradient-to-b from-black to-gray-900">
           <div className="text-left">
             <Text className="text-[10px] md:text-xs text-left text-white">
               © {new Date().getFullYear()} KAIROS. Tous droits réservés.

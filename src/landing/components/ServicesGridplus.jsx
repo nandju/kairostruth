@@ -50,7 +50,7 @@ const ServicesGrid = () => {
         "Sérénité : Que ce soit une arrivée ou un départ, nous nous occupons de tout pour vous !",
       ],
       link: "/transferts-aeroport",
-      image: "/aeroport.png",
+      image: "/assets/aeroport.png",
     },
     {
       title: "Mise À Disposition À Dakar",
@@ -63,7 +63,7 @@ const ServicesGrid = () => {
         "Découverte de Dakar : Partez à la découverte de la ville avec l'aide d'un guide local.",
       ],
       link: "/mise-a-disposition-dakar",
-      image: "/dakar.png",
+      image: "/assets/dakar.png",
     },
     {
       title: "Mise À Disposition en Région",
@@ -76,7 +76,7 @@ const ServicesGrid = () => {
         "Personnalisation : Possibilité d'organiser des trajets selon vos besoins.",
       ],
       link: "/mise-a-disposition-region",
-      image: "/region.png",
+      image: "/assets/region.png",
     },
   ];
 

@@ -70,8 +70,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4">
+    <header className="sticky top-0 z-50 bg-black shadow-md">
+      <div className="container px-4 mx-auto">
         <div className="flex items-center justify-between py-4 md:py-6">
           {/* Logo */}
           <div 
@@ -79,17 +79,17 @@ const Header = () => {
             onClick={() => handleNavigation('/', 'accueil')}
           >
             <img 
-              src="/logo.webp" 
+              src="/assets/logo.webp" 
               alt="WeTravel Logo" 
-              className="h-12 md:h-16 mr-3"
+              className="h-12 mr-3 md:h-16"
             />
-            <Title level={4} className="m-0 text-white font-poppins hidden sm:block">
+            <Title level={4} className="hidden m-0 text-white font-poppins sm:block">
               WeTravel
             </Title>
           </div>
 
           {/* Navigation - Desktop */}
-          <nav className="hidden md:flex items-center">
+          <nav className="items-center hidden md:flex">
             <ul className="flex space-x-8">
               {menuItems.map((item) => (
                 <li key={item.key}>
@@ -109,12 +109,12 @@ const Header = () => {
           </nav>
 
           {/* Buttons - Desktop */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="items-center hidden space-x-6 md:flex">
             <Button 
               type="default" 
               ghost
               icon={<UserOutlined className="text-xl" />}
-              className="font-poppins text-white border-white hover:text-primary hover:border-primary px-6 text-base"
+              className="px-6 text-base text-white border-white font-poppins hover:text-primary hover:border-primary"
               style={squareButtonStyle}
               onClick={handleLogin}
             >
@@ -123,7 +123,7 @@ const Header = () => {
             
             <Button 
               type="primary" 
-              className="font-poppins px-6 text-base"
+              className="px-6 text-base font-poppins"
               style={squareButtonStyle}
               onClick={handleContact}
             >
@@ -154,9 +154,9 @@ const Header = () => {
         headerStyle={{ display: 'none' }} // Masquer l'en-tête du drawer
         maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }} // Overlay plus sombre
       >
-        <div className="flex flex-col h-full bg-gradient-to-b from-black to-gray-900 text-white">
+        <div className="flex flex-col h-full text-white bg-gradient-to-b from-black to-gray-900">
           {/* En-tête du menu mobile */}
-          <div className="flex justify-between items-center p-5 border-b border-gray-800">
+          <div className="flex items-center justify-between p-5 border-b border-gray-800">
             <div 
               className="flex items-center cursor-pointer" 
               onClick={() => {
@@ -165,7 +165,7 @@ const Header = () => {
               }}
             >
               <img 
-                src="/logo.webp" 
+                src="/assets/logo.webp" 
                 alt="WeTravel Logo" 
                 className="h-8 mr-2"
               />
@@ -175,16 +175,16 @@ const Header = () => {
             </div>
             <button 
               onClick={toggleMobileMenu}
-              className="text-gray-400 hover:text-white focus:outline-none transition-colors"
+              className="text-gray-400 transition-colors hover:text-white focus:outline-none"
             >
               <CloseOutlined className="text-xl" />
             </button>
           </div>
           
           {/* Corps du menu mobile */}
-          <div className="flex-grow overflow-y-auto py-6 px-5">
+          <div className="flex-grow px-5 py-6 overflow-y-auto">
             <nav className="mb-8">
-              <Text className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-4 block">
+              <Text className="block mb-4 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                 Navigation
               </Text>
               
@@ -192,27 +192,27 @@ const Header = () => {
                 <a 
                   key={item.key} 
                   onClick={() => handleNavigation(item.href, item.key)}
-                  className="flex items-center py-3 px-2 text-gray-300 hover:text-primary hover:bg-black/30 rounded transition-colors group cursor-pointer"
+                  className="flex items-center px-2 py-3 text-gray-300 transition-colors rounded cursor-pointer hover:text-primary hover:bg-black/30 group"
                 >
-                  <span className="mr-3 text-lg text-gray-400 group-hover:text-primary transition-colors">
+                  <span className="mr-3 text-lg text-gray-400 transition-colors group-hover:text-primary">
                     {mobileMenuIcons[item.key]}
                   </span>
-                  <span className="font-poppins text-base">{item.label}</span>
+                  <span className="text-base font-poppins">{item.label}</span>
                 </a>
               ))}
             </nav>
             
-            <Divider className="border-gray-800 my-4" />
+            <Divider className="my-4 border-gray-800" />
             
             <div className="space-y-4">
-              <Text className="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-4 block">
+              <Text className="block mb-4 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                 Compte
               </Text>
               
               <Button 
                 type="default" 
                 icon={<UserOutlined />}
-                className="w-full font-poppins border-gray-700 text-white hover:text-primary hover:border-primary bg-transparent flex items-center justify-center"
+                className="flex items-center justify-center w-full text-white bg-transparent border-gray-700 font-poppins hover:text-primary hover:border-primary"
                 style={{ ...squareButtonStyle, height: '42px' }}
                 onClick={() => {
                   handleLogin();
@@ -229,7 +229,7 @@ const Header = () => {
             <Button 
               type="primary" 
               icon={<ArrowRightOutlined />}
-              className="w-full font-poppins flex items-center justify-center"
+              className="flex items-center justify-center w-full font-poppins"
               style={{ ...squareButtonStyle, height: '42px' }}
               onClick={() => {
                 handleContact();

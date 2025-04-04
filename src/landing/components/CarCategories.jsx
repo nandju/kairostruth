@@ -72,7 +72,7 @@ const CarCard = ({ image, title, subtitle, description }) => {
 const CarCategories = () => {
   const categories = [
     {
-      image: "/berline.png",
+      image: "/assets/berline.png",
       title: "Berline",
       subtitle: "Transport simple",
       description: "Jusqu'à 4 places",
@@ -83,7 +83,7 @@ const CarCategories = () => {
       ]
     },
     {
-      image: "/suv.png",
+      image: "/assets/suv.png",
       title: "Suv",
       subtitle: "Transport confortable",
       description: "Jusqu'à 4 places",
@@ -94,7 +94,7 @@ const CarCategories = () => {
       ]
     },
     {
-      image: "/van.png",
+      image: "/assets/van.png",
       title: "VAN",
       subtitle: "Transport spacieux",
       description: "Jusqu'à 7 places",
@@ -105,7 +105,7 @@ const CarCategories = () => {
       ]
     },
     {
-      image: "/minibus.png",
+      image: "/assets/minibus.png",
       title: "Mini-Bus",
       subtitle: "Transport luxueux",
       description: "Jusqu'à 15 places",
@@ -116,7 +116,7 @@ const CarCategories = () => {
       ]
     },
     {
-      image: "/utilitaire.png",
+      image: "/assets/utilitaire.png",
       title: "Véhicule",
       subtitle: "Transport personnalisé",
       description: "Utilitaire",
