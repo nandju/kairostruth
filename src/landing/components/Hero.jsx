@@ -26,16 +26,16 @@ const Hero = () => {
       />
       
       {/* Overlay sombre pour améliorer la lisibilité du texte */}
-      <div className="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+      <div className="absolute inset-0 z-10 bg-black bg-opacity-60"></div>
       
-      <div className="container mx-auto px-4 relative z-20">
+      <div className="container relative z-20 px-4 mx-auto">
         <Row gutter={[32, 32]} align="middle">
           {/* Colonne de gauche avec le texte */}
           <Col xs={24} md={12} className="text-left">
             <div className="max-w-lg">
               <Title 
                 level={1} 
-                className="text-white font-poppins mb-6 leading-tight font-bold"
+                className="mb-6 font-bold leading-tight text-white font-poppins"
                 style={{ 
                   color: '#ffffff',
                   fontSize: 'clamp(2.5rem, 6vw, 5.4rem)'
@@ -44,7 +44,7 @@ const Hero = () => {
                 Voyagez en toute sérénité
               </Title>
               
-              <Paragraph className="text-gray-light text-lg md:text-xl mb-8">
+              <Paragraph className="mb-8 text-lg text-gray-light md:text-xl">
                 Réservez un chauffeur professionnel en quelques clics et profitez d'un trajet confortable et sécurisé.
               </Paragraph>
               
@@ -62,7 +62,7 @@ const Hero = () => {
                 <Button 
                   size="large"
                   ghost
-                  className="border-white text-white hover:text-primary hover:border-primary"
+                  className="text-white border-white hover:text-primary hover:border-primary"
                   icon={<ArrowRightOutlined />}
                   style={{ borderRadius: 0, height: '48px' }}
                   onClick={() => {
@@ -76,32 +76,32 @@ const Hero = () => {
                 </Button>
               </Space>
               
-              <div className="mt-8 flex items-center">
-                <div className="flex -space-x-2 mr-4">
+              <div className="flex items-center mt-8">
+                <div className="flex mr-4 -space-x-2">
                   {[1, 2, 3, 4].map(i => (
                     <img 
                       key={i}
                       src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? 'women' : 'men'}/${20 + i}.jpg`}
                       alt={`Client ${i}`}
-                      className="w-10 h-10 rounded-full border-2 border-white"
+                      className="w-10 h-10 border-2 border-white rounded-full"
                     />
                   ))}
                 </div>
                 <div>
-                  <span className="text-primary font-bold">4.9/5</span>
-                  <span className="text-gray-300 ml-2">Plus de 2000 clients satisfaits</span>
+                  <span className="font-bold text-primary">4.9/5</span>
+                  <span className="ml-2 text-gray-300">Plus de 2000 clients satisfaits</span>
                 </div>
               </div>
             </div>
           </Col>
           
           {/* Colonne de droite avec l'image - visible uniquement sur desktop */}
-          <Col xs={24} md={12} className="hidden md:flex justify-center md:justify-end">
+          <Col xs={24} md={12} className="justify-center hidden md:flex md:justify-end">
             <div className="relative w-full">
               <img 
-                src="/car-1.webp" 
+                src="/assets/car-1.webp" 
                 alt="Voiture de luxe avec chauffeur" 
-                className="w-full h-auto rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto transition-transform duration-500 transform rounded-lg shadow-2xl hover:scale-105"
                 style={{ maxHeight: '500px', objectFit: 'cover' }}
               />
             </div>
