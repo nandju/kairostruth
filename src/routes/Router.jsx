@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from '../context/AuthContext';
 
 // Pages publiques
-import LoginPage from '../auth/pages/LoginPage';
+import LoginPage from '../auth/pages/page';
 import Landing from '../landing/pages/Landing';
 
 // Pages client
