@@ -18,8 +18,10 @@ const { Option } = Select;
 const GestionFinanciere = () => {
   const [dateRange, setDateRange] = useState([dayjs().startOf('month'), dayjs().endOf('month')]);
   const [periode, setPeriode] = useState('jour');
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [form] = Form.useForm();
+  const [isDepenseModalVisible, setIsDepenseModalVisible] = useState(false);
+  const [isRevenuModalVisible, setIsRevenuModalVisible] = useState(false);
+  const [depenseForm] = Form.useForm();
+  const [revenuForm] = Form.useForm();
 
   // Données simulées
   const revenus = {
@@ -163,20 +165,38 @@ const GestionFinanciere = () => {
   ];
 
   const handleAddDepense = () => {
-    setIsModalVisible(true);
+    setIsDepenseModalVisible(true);
   };
 
-  const handleModalCancel = () => {
-    setIsModalVisible(false);
-    form.resetFields();
+  const handleAddRevenu = () => {
+    setIsRevenuModalVisible(true);
   };
 
-  const handleModalSubmit = () => {
-    form.validateFields().then(values => {
+  const handleDepenseModalCancel = () => {
+    setIsDepenseModalVisible(false);
+    depenseForm.resetFields();
+  };
+
+  const handleRevenuModalCancel = () => {
+    setIsRevenuModalVisible(false);
+    revenuForm.resetFields();
+  };
+
+  const handleDepenseModalSubmit = () => {
+    depenseForm.validateFields().then(values => {
       console.log('Nouvelle dépense:', values);
       // Ici vous ajouteriez la logique pour sauvegarder la dépense
-      setIsModalVisible(false);
-      form.resetFields();
+      setIsDepenseModalVisible(false);
+      depenseForm.resetFields();
+    });
+  };
+
+  const handleRevenuModalSubmit = () => {
+    revenuForm.validateFields().then(values => {
+      console.log('Nouveau revenu:', values);
+      // Ici vous ajouteriez la logique pour sauvegarder le revenu
+      setIsRevenuModalVisible(false);
+      revenuForm.resetFields();
     });
   };
 
@@ -319,19 +339,31 @@ const GestionFinanciere = () => {
                 </span>
               ),
               children: (
-                <div className="overflow-x-auto">
-                  <Table
-                    columns={columns.revenus}
-                    dataSource={revenusData}
-                    pagination={{
-                      pageSize: 10,
-                      showSizeChanger: true,
-                      showTotal: (total) => `Total ${total} entrées`,
-                      size: 'small',
-                    }}
-                    className="[&_.ant-table-thead_.ant-table-cell]:!bg-gray-50 [&_.ant-table-thead_.ant-table-cell]:!text-gray-600 [&_.ant-table]:min-w-[600px]"
-                    size="small"
-                  />
+                <div className="space-y-4">
+                  <div className="flex justify-end">
+                    <Button 
+                      type="primary" 
+                      icon={<PlusOutlined />} 
+                      onClick={handleAddRevenu}
+                      className="!rounded-none bg-green-600 hover:bg-green-700 w-full sm:w-auto"
+                    >
+                      Ajouter un revenu
+                    </Button>
+                  </div>
+                  <div className="overflow-x-auto">
+                    <Table
+                      columns={columns.revenus}
+                      dataSource={revenusData}
+                      pagination={{
+                        pageSize: 10,
+                        showSizeChanger: true,
+                        showTotal: (total) => `Total ${total} entrées`,
+                        size: 'small',
+                      }}
+                      className="[&_.ant-table-thead_.ant-table-cell]:!bg-gray-50 [&_.ant-table-thead_.ant-table-cell]:!text-gray-600 [&_.ant-table]:min-w-[600px]"
+                      size="small"
+                    />
+                  </div>
                 </div>
               ),
             },
@@ -383,16 +415,16 @@ const GestionFinanciere = () => {
             Ajouter une dépense
           </div>
         }
-        open={isModalVisible}
-        onCancel={handleModalCancel}
-        onOk={handleModalSubmit}
+        open={isDepenseModalVisible}
+        onCancel={handleDepenseModalCancel}
+        onOk={handleDepenseModalSubmit}
         okText="Enregistrer"
         cancelText="Annuler"
         className="[&_.ant-modal-content]:!rounded-none [&_.ant-btn]:!rounded-none [&_.ant-select-selector]:!rounded-none [&_.ant-input-number]:!rounded-none [&_.ant-picker]:!rounded-none [&_.ant-input]:!rounded-none"
         width={400}
       >
         <Form
-          form={form}
+          form={depenseForm}
           layout="vertical"
           className="mt-4"
         >
@@ -442,6 +474,7 @@ const GestionFinanciere = () => {
               placeholder="0.00"
             />
           </Form.Item>
+          
           <Form.Item
             name="receipt"
             label={<span className="text-sm">Reçu de dépense</span>}
@@ -459,8 +492,89 @@ const GestionFinanciere = () => {
           </Form.Item>
         </Form>
       </Modal>
+
+      {/* Modal d'ajout de revenu */}
+      <Modal
+        title={
+          <div className="text-base font-clash sm:text-lg">
+            Ajouter un revenu
+          </div>
+        }
+        open={isRevenuModalVisible}
+        onCancel={handleRevenuModalCancel}
+        onOk={handleRevenuModalSubmit}
+        okText="Enregistrer"
+        cancelText="Annuler"
+        className="[&_.ant-modal-content]:!rounded-none [&_.ant-btn]:!rounded-none [&_.ant-select-selector]:!rounded-none [&_.ant-input-number]:!rounded-none [&_.ant-picker]:!rounded-none [&_.ant-input]:!rounded-none"
+        width={400}
+      >
+        <Form
+          form={revenuForm}
+          layout="vertical"
+          className="mt-4"
+        >
+          <Form.Item
+            name="date"
+            label={<span className="text-sm">Date</span>}
+            rules={[{ required: true, message: 'Veuillez sélectionner une date' }]}
+          >
+            <DatePicker 
+              className="w-full" 
+              placeholder="Sélectionner une date"
+            />
+          </Form.Item>
+
+          <Form.Item
+            name="rides"
+            label={<span className="text-sm">Nombre de courses</span>}
+            rules={[{ required: true, message: 'Veuillez entrer le nombre de courses' }]}
+          >
+            <Input 
+              type="number"
+              placeholder="0"
+            />
+          </Form.Item>
+
+          <Form.Item
+            name="drivingTime"
+            label={<span className="text-sm">Temps de conduite</span>}
+            rules={[{ required: true, message: 'Veuillez entrer le temps de conduite' }]}
+          >
+            <Input 
+              placeholder="Ex: 5h 30min"
+            />
+          </Form.Item>
+
+          <Form.Item
+            name="earnings"
+            label={<span className="text-sm">Montant (XOF)</span>}
+            rules={[{ required: true, message: 'Veuillez entrer un montant' }]}
+          >
+            <Input 
+              type="number"
+              placeholder="0.00"
+            />
+          </Form.Item>
+          
+          <Form.Item
+            name="receipt"
+            label={<span className="text-sm">Justificatif</span>}
+            valuePropName="fileList"
+            getValueFromEvent={(e) => e && e.fileList}
+            rules={[{ required: true, message: 'Veuillez télécharger le justificatif' }]}
+          >
+            <Upload
+              name="receipt"
+              accept=".pdf,.jpg,.jpeg,.png"
+              beforeUpload={() => false}
+            >
+              <Button icon={<DownloadOutlined />}>Importer le justificatif</Button>
+            </Upload>
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 };
 
-export default GestionFinanciere; 
+export default GestionFinanciere;
