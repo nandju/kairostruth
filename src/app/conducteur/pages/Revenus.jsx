@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Row, Col, Statistic, DatePicker, Table, Button, Tabs, Progress, Tag, Modal, Form, Input, Select } from 'antd';
+import { Card, Row, Col, Statistic, DatePicker, Table, Button, Tabs, Progress, Tag, Modal, Form, Input, Select, Upload } from 'antd';
 import { 
   DollarOutlined, 
   CarOutlined, 
@@ -185,6 +185,7 @@ const GestionFinanciere = () => {
     { value: 'Entretien', label: 'Entretien' },
     { value: 'Assurance', label: 'Assurance' },
     { value: 'Réparations', label: 'Réparations' },
+    { value: 'péages', label: 'péages' },
     { value: 'Autres', label: 'Autres' },
   ];
 
@@ -192,12 +193,12 @@ const GestionFinanciere = () => {
     <div className="space-y-6">
       {/* En-tête avec titre et filtres */}
       <div className="bg-white p-4 md:p-6 shadow-sm !rounded-none">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <h1 className="text-xl sm:text-2xl font-clash font-semibold text-gray-800">Gestion Financière</h1>
-            <p className="text-sm sm:text-base text-gray-500 mt-1">Suivez vos revenus et dépenses</p>
+            <h1 className="text-xl font-semibold text-gray-800 sm:text-2xl font-clash">Gestion Financière</h1>
+            <p className="mt-1 text-sm text-gray-500 sm:text-base">Suivez vos revenus et dépenses</p>
           </div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full sm:w-auto">
+          <div className="flex flex-col items-start w-full gap-3 sm:flex-row sm:items-center sm:w-auto">
             <div className="flex gap-1 bg-gray-100 p-1 !rounded-none w-full sm:w-auto">
               {periodeButtons.map(({ label, value }) => (
                 <button
@@ -229,19 +230,19 @@ const GestionFinanciere = () => {
       </div>
 
       {/* Vue d'ensemble */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
         {/* Revenus */}
         <Card bordered={false} className="!rounded-none bg-gradient-to-br from-green-50 to-green-100">
           <div className="flex items-center justify-between mb-3 md:mb-4">
-            <span className="text-xs sm:text-sm font-medium text-gray-600">Revenus totaux</span>
+            <span className="text-xs font-medium text-gray-600 sm:text-sm">Total encaissements</span>
             <Tag color="green" className="!rounded-none text-xs sm:text-sm">
               +{revenus.progression}%
             </Tag>
           </div>
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold">{revenus.total.toFixed(2)} XOF</p>
-              <p className="text-xs sm:text-sm text-gray-500">{revenus.courses} courses</p>
+              <p className="text-lg font-semibold sm:text-xl md:text-2xl">{revenus.total.toFixed(2)} XOF</p>
+              <p className="text-xs text-gray-500 sm:text-sm">{revenus.courses} courses</p>
             </div>
             <Progress 
               type="circle" 
@@ -256,15 +257,15 @@ const GestionFinanciere = () => {
         {/* Dépenses */}
         <Card bordered={false} className="!rounded-none bg-gradient-to-br from-red-50 to-red-100">
           <div className="flex items-center justify-between mb-3 md:mb-4">
-            <span className="text-xs sm:text-sm font-medium text-gray-600">Dépenses totales</span>
+            <span className="text-xs font-medium text-gray-600 sm:text-sm">Dépenses totales</span>
             <Tag color="red" className="!rounded-none text-xs sm:text-sm">
               {depenses.progression}%
             </Tag>
           </div>
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold">{depenses.total.toFixed(2)} XOF</p>
-              <p className="text-xs sm:text-sm text-gray-500">
+              <p className="text-lg font-semibold sm:text-xl md:text-2xl">{depenses.total.toFixed(2)} XOF</p>
+              <p className="text-xs text-gray-500 sm:text-sm">
                 Carburant: {depenses.carburant} XOF
               </p>
             </div>
@@ -281,15 +282,15 @@ const GestionFinanciere = () => {
         {/* Solde */}
         <Card bordered={false} className="!rounded-none bg-gradient-to-br from-blue-50 to-blue-100 sm:col-span-2 lg:col-span-1">
           <div className="flex items-center justify-between mb-3 md:mb-4">
-            <span className="text-xs sm:text-sm font-medium text-gray-600">Solde net</span>
+            <span className="text-xs font-medium text-gray-600 sm:text-sm">Solde net</span>
             <Tag color="blue" className="!rounded-none text-xs sm:text-sm">
               Période en cours
             </Tag>
           </div>
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold">{solde.toFixed(2)} XOF</p>
-              <p className="text-xs sm:text-sm text-gray-500">
+              <p className="text-lg font-semibold sm:text-xl md:text-2xl">{solde.toFixed(2)} XOF</p>
+              <p className="text-xs text-gray-500 sm:text-sm">
                 {revenus.tempsConduite} de conduite
               </p>
             </div>
@@ -378,7 +379,7 @@ const GestionFinanciere = () => {
       {/* Modal d'ajout de dépense */}
       <Modal
         title={
-          <div className="font-clash text-base sm:text-lg">
+          <div className="text-base font-clash sm:text-lg">
             Ajouter une dépense
           </div>
         }
@@ -440,6 +441,21 @@ const GestionFinanciere = () => {
               type="number"
               placeholder="0.00"
             />
+          </Form.Item>
+          <Form.Item
+            name="receipt"
+            label={<span className="text-sm">Reçu de dépense</span>}
+            valuePropName="fileList"
+            getValueFromEvent={(e) => e && e.fileList}
+            rules={[{ required: true, message: 'Veuillez télécharger le reçu de la dépense' }]}
+          >
+            <Upload
+              name="receipt"
+              accept=".pdf,.jpg,.jpeg,.png"
+              beforeUpload={() => false}
+            >
+              <Button icon={<DownloadOutlined />}>Importer le reçu</Button>
+            </Upload>
           </Form.Item>
         </Form>
       </Modal>
